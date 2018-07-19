@@ -1,0 +1,29 @@
+﻿@inherits Glass.Mapper.Sc.Web.Mvc.GlassView<Sitecore_Demo.Models.Folders.NavFolder>
+
+<!-- Static navbar -->
+<nav class="navbar">
+
+    <ul>
+        @foreach (var item in Model.NavItems)
+        {
+            <li>
+                @*<a href="@Editable(item,x=>x.NavLink)">@Editable(item, x => x.NavText)</a>*@
+
+                @RenderLink(item, x => x.NavLink)
+
+            </li>
+        }
+        @*<li></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#news">Services</a></li>*@
+        @*<li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
+                <div class="dropdown-content">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+            </li>*@
+    </ul>
+
+</nav>

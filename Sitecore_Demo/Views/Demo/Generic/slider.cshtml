@@ -1,0 +1,34 @@
+﻿@inherits Glass.Mapper.Sc.Web.Mvc.GlassView<Sitecore_Demo.Models.Folders.SliderFolder>
+<div id="slider">
+    <a href="#" class="control_next">&gt;</a>
+    <a href="#" class="control_prev">&lt;</a>
+    <ul>
+        @foreach (var item in Model.SlidetItems)
+        {
+            <li>
+                @RenderImage(item, x => x.SliderImage, isEditable: true)
+                <span>
+                    @Editable(item, x => x.SliderText)
+                </span>
+                <span>
+                    @Editable(item, x => x.SliderDescription)
+                </span>
+                @*<img src="chicago.jpg" alt="Chicago" style="width:100%;">*@
+            </li>
+        }
+    </ul>
+</div>
+<div class="slider_option">
+    <input type="checkbox" id="checkbox">
+    <label for="checkbox">Autoplay <a href="https://www.jqueryscript.net/slider/">Slider</a></label>
+</div>
+
+<script type="text/javascript">
+    $('#checkbox').change(function () {
+        setInterval(function () {
+            moveRight();
+        }, 3000);
+    });
+</script>
+
+
